@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Route;
 // Home Screen
 Route::view('/', 'home')->name('home');
 
-// Board contain thread groups
+// Board contain thread group
 Route::get('/{board}', [ThreadController::class, 'index'])->name('thread.index');
 Route::get('/{board}/res/{thread}', [ThreadController::class, 'show'])->name('thread.show');
 Route::get('/{board}/res/create', [ThreadController::class, 'create'])->name('thread.create');
 Route::post('/{board}/res/store',[ThreadController::class, 'store'])->name('thread.store');
 
-// Thread contain post groups
+// Thread contain post group
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 Route::post('/{board}/res/{thread}/post/store', [PostController::class, 'store'])->name('post.store');
